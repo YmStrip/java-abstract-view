@@ -15,7 +15,7 @@ class example extends VNode<Table> {
 			watch(() -> {
 				if (width.value != null) el.setWidth(width.value);
 				if (height.value != null) el.setHeight(height.value);
-			}, width);
+			}, width,height);
 			{
 				var c = new Table();
 				bindC.button("+", () -> {
