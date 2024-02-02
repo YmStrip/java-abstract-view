@@ -30,8 +30,19 @@ public class Node {
 	}
 	
 	public Node insertChild(int index, Node e) {
+		if (index >= child.size()) index = child.size() - 1;
+		if (index < 0) index = 0;
 		view.insertChild(el, index, e);
 		child.add(index, e);
+		return this;
+	}
+	
+	public Node removeChild(int index) {
+		if (child.isEmpty()) return this;
+		if (index >= child.size()) index = child.size() - 1;
+		if (index < 0) index = 0;
+		child.remove(index);
+		view.delChild(el, index);
 		return this;
 	}
 	
@@ -57,6 +68,9 @@ public class Node {
 	}
 	
 	public Node getChild(int index) {
+		if (child.isEmpty()) return null;
+		if (index >= child.size()) return child.get(child.size() - 1);
+		if (index < 0) return child.get(0);
 		return child.get(index);
 	}
 	
@@ -65,6 +79,9 @@ public class Node {
 	}
 	
 	public Node delChild(int index) {
+		if (child.isEmpty()) return this;
+		if (index>=child.size()) index = child.size()-1;
+		if (index<0) index = 0;
 		child.remove(index);
 		view.delChild(el, index);
 		return this;
