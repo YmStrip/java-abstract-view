@@ -5,7 +5,7 @@ import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import yview.core.util.ColorType;
-import yview.core.core.View;
+import yview.core.src.View;
 
 import java.awt.*;
 
@@ -38,17 +38,17 @@ public class LibgdxView extends View {
 	}
 	
 	@Override
-	public Object el() {
+	public Object element() {
 		return new Table();
 	}
 	
 	@Override
-	public boolean isEl(Object d) {
+	public boolean isElement(Object d) {
 		return d instanceof Actor;
 	}
 	
 	@Override
-	public Object stringEl(Object d) {
+	public Object textEl(Object d) {
 		return new Table() {{
 			add(new Label("", new Label.LabelStyle()));
 		}};
@@ -90,7 +90,7 @@ public class LibgdxView extends View {
 	}
 	
 	@Override
-	public void delEl(Object d) {
+	public void removeElement(Object d) {
 		if (d instanceof Actor a) {
 			a.remove();
 		}

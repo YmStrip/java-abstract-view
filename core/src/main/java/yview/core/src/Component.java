@@ -1,4 +1,6 @@
-package yview.core.core;
+package yview.core.src;
+
+import yview.core.lib.Watch;
 
 public class Component {
 	//时间列表

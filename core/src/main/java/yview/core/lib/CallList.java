@@ -1,4 +1,4 @@
-package yview.core.core;
+package yview.core.lib;
 
 import yview.core.interfaces.Prov;
 

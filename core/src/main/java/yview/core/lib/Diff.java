@@ -1,4 +1,7 @@
-package yview.core.core;
+package yview.core.lib;
+
+import yview.core.src.Node;
+import yview.core.src.VNode;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,7 +14,7 @@ public class Diff {
 				||
 				oldNode.diffKey.equals(newNode.diffKey)
 					&&
-					oldNode.tagName.equals(newNode.tagName)
+					oldNode.tag.equals(newNode.tag)
 					&&
 					oldNode.isText == newNode.isText;
 		
@@ -25,13 +28,12 @@ public class Diff {
 			el.setText(newNode.text);
 			return;
 		}
-		if (isSameNode(oldNode, newNode)) return;
 		//新老子节点
 		var oldCh = oldNode.children;
 		var newCh = newNode.children;
 		//如果都有child,那么diff
 		if (!oldCh.isEmpty() && !newCh.isEmpty()) {
-			diff(oldNode, oldCh, newCh);
+			diff(oldNode, newCh);
 			return;
 		}
 		//旧节点没有,新的有
@@ -56,16 +58,25 @@ public class Diff {
 	}
 	
 	//暴力diff
-	public static void diff(VNode parent, ArrayList<VNode> oldCh, ArrayList<VNode> newCh) {
+	public static void diff(VNode parent, ArrayList<VNode> newCh) {
 		var time = System.currentTimeMillis();
 		var diffKeys = new HashMap<String, VNode>();
-		for (VNode n : oldCh) {
-			diffKeys.put(n.diffKey, n);
+		//keys
+		for (var i = parent.el.child.size() - 1; i >= 0; --i) {
+			var n = parent.el.child.get(i);
+			VNode node = (VNode) n.attributes.get("v-node");
+			if (node == null) {
+				parent.el.removeChild(n);
+				continue;
+			}
+			diffKeys.put(node.diffKey, node);
 		}
 		for (var i = 0; i < newCh.size(); ++i) {
 			var n = newCh.get(i);
 			var dn = diffKeys.get(n.diffKey);
+			//create
 			if (dn == null) {
+				//System.out.println("add" + n.tag+" key:"+n.diffKey+" index:"+i);
 				n.create();
 				n.diffIndex = i;
 				n.diffTime = time;
@@ -73,7 +84,9 @@ public class Diff {
 				parent.el.setChild(i, n.el);
 				continue;
 			}
+			//move
 			if (i != dn.diffIndex) {
+				//System.out.println(dn.tag + " key:" + dn.diffKey + " oldIndex:" + dn.diffIndex + " newIndex:" + i);
 				dn.diffIndex = i;
 				parent.el.setChild(i, dn.el);
 			}
@@ -81,10 +94,11 @@ public class Diff {
 			dn.diffTime = time;
 			patch(dn, n);
 		}
+		//delete
 		for (var i : diffKeys.entrySet()) {
 			var n = i.getValue();
 			if (n.diffTime == time) continue;
-			diffKeys.remove(n.diffKey);
+			//System.out.println("del:"+n.tag);
 			parent.el.removeChild(n.el);
 		}
 	}
