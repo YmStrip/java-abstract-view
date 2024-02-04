@@ -8,9 +8,9 @@ import yview.ast.DocumentParser;
 public class Compiler {
 	public CompilerConfig config = new CompilerConfig(this);
 	public String code = "";
-	public Document document;
-	public CompilerData compilerData;
-	public VAst ast;
+	public Document sfcDocument;
+	public CompilerData sfcCompilerData;
+	public VAst sfcAst;
 	
 	public Compiler() {
 	
@@ -20,22 +20,21 @@ public class Compiler {
 		this.code = code;
 	}
 	
-	public Compiler compile() {
+	public Compiler compileSfc() {
 		try {
-			document = null;
-			compilerData = null;
-			ast = null;
+			sfcDocument = null;
+			sfcCompilerData = null;
+			sfcAst = null;
 			//解析文档
-			document = DocumentParser.parse(config.sourceFix(code));
+			sfcDocument = DocumentParser.parse(config.sourceFix(code));
 			//提取template,script,并检查
-			compilerData = new CompilerData(document);
-			compilerData.check(this);
+			sfcCompilerData = new CompilerData(sfcDocument);
+			sfcCompilerData.check(this);
 			//创建Ast
-			ast = new VAst(this, compilerData.template) {{
+			sfcAst = new VAst(this, sfcCompilerData.template) {{
 				isRoot = true;
 				init();
 			}};
-			System.out.println(compilerData.template);
 		} catch (Exception e) {
 			config.handelError.get(e + "");
 			throw new Error(e);
@@ -43,9 +42,9 @@ public class Compiler {
 		return this;
 	}
 	
-	public Compiler compile(String code) {
+	public Compiler compileSfc(String code) {
 		this.code = code;
-		compile();
+		compileSfc();
 		return this;
 	}
 }

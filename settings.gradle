@@ -2,4 +2,5 @@ rootProject.name = 'java-abstract-vue'
 include 'core'
 include 'compiler'
 include 'libgdx'
+include 'webview'
 

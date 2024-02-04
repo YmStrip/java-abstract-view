@@ -7,12 +7,40 @@ import yview.core.util.ColorType;
 import java.util.ArrayList;
 
 public class Main {
+	//0.5 * 3^(n+1)-3
+	public VNode timeTest(View<?> v, int n, int count) {
+		var root = new VNode(v);
+		return timeTest(v, root, 1, n, count);
+	}
+	public VNode timeTest(View<?> v, VNode parent, int n, int maxN, int count) {
+		if (n > maxN) return parent;
+		for (var i = 0; i < count; ++i) {
+			var p = new VNode(v);
+			parent.child(parent.children.size(), p);
+			timeTest(v, p, n + 1, maxN, count);
+		}
+		return parent;
+	}
+	public void timeTest(float count, VNode old, VNode newNode) {
+		var time = System.currentTimeMillis();
+		newNode.patch(old);
+		System.out.println("patch node " + count + " use " + (System.currentTimeMillis() - time));
+	}
+	public void timeTest(View<?> v, int n) {
+		var LIST = new ArrayList<VNode>();
+		for (var i = 0; i < n; ++i) {
+			LIST.add(timeTest(v, i + 1, 2));
+		}
+		for (var i = 0; i < LIST.size(); ++i) {
+			timeTest((float) (0.5 * (Math.pow(2, i + 1) - 2)), v.node, LIST.get(i));
+		}
+	}
 	@Test
 	public void test() {
 		var view = new TextView();
 		view.node(new VNode(view)
 			.child("div")
-			.child("div",a->a
+			.child("div", a -> a
 				.child("button")
 				.child("a")
 			)
@@ -24,11 +52,16 @@ public class Main {
 		var ch0 = view.node.child(0);
 		ch0.child("newH");
 		var ch1 = view.node.child(1);
-		ch1.insert(0,"newCh").remove(2);
-		ch1.insert(1,"qu",n->n
-			.child("mu"));
+		ch1.insert(0, "newCh").remove(2);
+		ch1.insert(1, "qu", n -> n
+			.child("mu")
+		)
+			.child(0,timeTest(view,2,3));
 		view.node.patch(view.node);
 		System.out.println(b.el);
+		//m =
+		//3
+		//timeTest(view,16);
 	}
 	public static class El {
 		public String name = "";
@@ -43,6 +76,7 @@ public class Main {
 		public El parent;
 		public ArrayList<El> child = new ArrayList<>();
 	}
+	
 	public static class TextView extends View<El> {
 		
 		@Override

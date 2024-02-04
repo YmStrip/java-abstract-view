@@ -12,11 +12,24 @@ import java.util.HashMap;
 public class PropData {
 	public static class Prop {
 		//是否是静态的 string | code
-		public boolean isStatic = true;
+		public boolean staticKey = true;
+		public boolean staticValue = true;
 		//属性名称[代码]
 		public String key;
+		public String strKey(String fi, String rep) {
+			return fi + key.replace(fi, rep) + fi;
+		}
+		public String strKey() {
+			return strKey("\"", "\\\"");
+		}
 		//属性值[静态|代码]
 		public String value;
+		public String strValue(String fi, String rep) {
+			return fi + value.replace(fi, rep) + fi;
+		}
+		public String strValue() {
+			return strValue("\"", "\\\"");
+		}
 	}
 	
 	public PropData(Compiler compiler, Element el) {
@@ -27,7 +40,7 @@ public class PropData {
 	
 	public Compiler compiler;
 	public Element el;
-	public ArrayList<Object> props = new ArrayList<>();
+	public ArrayList<Prop> props = new ArrayList<>();
 	public HashMap<String, Boolean> keys = new HashMap<>();
 	
 	public PropData parse(Element el) {
@@ -51,7 +64,8 @@ public class PropData {
 				//动态属性名称
 				var nameA = bindKey.substring(1).split("]");
 				props.add(new Prop() {{
-					isStatic = false;
+					staticKey = false;
+					staticValue = false;
 					if (nameA.length == 1) {
 						key = nameA[0];
 					}
@@ -59,7 +73,6 @@ public class PropData {
 					else {
 						key = String.join("", Arrays.copyOfRange(nameA, 0, nameA.length - 1));
 					}
-					
 					value = v;
 				}});
 			}
@@ -67,8 +80,9 @@ public class PropData {
 			else {
 				//静态属性名称
 				props.add(new Prop() {{
-					isStatic = false;
-					key = "\"" + bindKey.replaceAll("\"", "\\\"") + "\"";
+					staticKey = true;
+					staticValue = false;
+					key = bindKey;
 					value = v;
 				}});
 			}
@@ -77,9 +91,10 @@ public class PropData {
 		//xxx = xxx
 		{
 			props.add(new Prop() {{
-				isStatic = true;
-				key = "\"" + k.replaceAll("\"", "\\\"") + "\"";
-				value = "\"" + v.replaceAll("\"", "\\\"") + "\"";
+				staticKey = true;
+				staticValue = true;
+				key = k;
+				value = v;
 			}});
 		}
 		return this;
@@ -96,25 +111,19 @@ public class PropData {
 	}
 	
 	public PropData check() {
-		for (var i : props) {
-			if (i instanceof Prop prop) {
-				if (!prop.isStatic && Keywords.is(prop.key)) {
-					compiler.config.keywordError(":" + prop.key + "=", el);
-				}
+		for (var prop : props) {
+			if (!prop.staticKey && Keywords.is(prop.key)) {
+				compiler.config.keywordError(":" + prop.key + "=", el);
 			}
 		}
 		return this;
 	}
-	
 	@Override
 	public String toString() {
-		var s = new ArrayList<String>();
+		var data = new StringBuilder().append("{");
 		for (var i : props) {
-			if (i instanceof Prop p) {
-				s.add(p.key + "=" + p.value);
-			}
-			s.add(" ");
+			data.append(i.key).append(":").append(i.value).append(",");
 		}
-		return String.join(" ", s.toArray(new String[0]));
+		return data.append("}").toString();
 	}
 }

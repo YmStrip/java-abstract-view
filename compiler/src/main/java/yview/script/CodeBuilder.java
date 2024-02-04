@@ -20,7 +20,16 @@ public class CodeBuilder {
 		data.add(new CodeBuilder(code));
 		return this;
 	}
-	
+	public CodeBuilder add(int index, String code) {
+		return add(index,new CodeBuilder(code));
+	}
+	public CodeBuilder add(int index,CodeBuilder code) {
+		if (data.isEmpty()) return add(code);
+		if (index < 0) index = 0;
+		if (index >= data.size()) index = data.size() - 1;
+		data.add(index, code);
+		return this;
+	}
 	public CodeBuilder add(CodeBuilder code) {
 		data.add(code);
 		return this;
@@ -47,5 +56,9 @@ public class CodeBuilder {
 		code.append(value);
 		for (var i : data) code.append(i.dump());
 		return code.toString();
+	}
+	@Override
+	public String toString() {
+		return dump();
 	}
 }

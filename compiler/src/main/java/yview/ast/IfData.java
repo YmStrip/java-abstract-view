@@ -32,19 +32,19 @@ public class IfData {
 	public IfData init() {
 		var _if = el.attr("v-if");
 		var _elseif = el.attr("v-else-if");
-		var _else = el.attr("v-else");
+		var _else = el.attribute("v-else");
 		if (!_if.isEmpty()) {
 			if (hasIf()) error("Only one v-if, v-else, v-else-if can be defined");
 			//解析目标的if
 			ifData = _if.trim();
 		}
-		if (!_else.isEmpty()) {
+		if (_else != null) {
 			if (hasIf()) error("Only one v-if, v-else, v-else-if can be defined");
-			elseData = _else.trim();
+			elseData = "else";
 		}
 		if (!_elseif.isEmpty()) {
 			if (hasIf()) error("Only one v-if, v-else, v-else-if can be defined");
-			elseIfData= _elseif.trim();
+			elseIfData = _elseif.trim();
 		}
 		return this;
 	}
@@ -55,7 +55,7 @@ public class IfData {
 	}
 	
 	public static boolean isIf(Element el) {
-		return (!el.attr("v-if").isEmpty() || !el.attr("v-else-if").isEmpty() || !el.attr("v-else").isEmpty());
+		return (el.attribute("v-if") != null || el.attribute("v-else-if") != null || el.attribute("v-else") != null);
 	}
 	
 	//检查左边标记
@@ -63,7 +63,8 @@ public class IfData {
 		// [v-if|v-else-if] -> v-else | v-else-if
 		if (elseData != null || elseIfData != null) {
 			//必须是v-if 和 v-else-if
-			if (left==null||left.elseData!=null||!(left.ifData!=null||left.elseIfData!=null)) error("v-else must be linked to v-if/v-else-if");
+			if (left == null || left.elseData != null || !(left.ifData != null || left.elseIfData != null))
+				error("v-else must be linked to v-if/v-else-if");
 		}
 		return this;
 	}

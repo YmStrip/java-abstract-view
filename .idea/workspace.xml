@@ -5,21 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0428df5-c39b-420f-bc7d-8c5f08eb0870" name="更改" comment="update-diff">
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/yview/core/src/Data.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/yview/core/src/View.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/yview/core/src/ViewConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/yview/core/util/NodeTree.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/test/java/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compiler/src/main/java/yview/TODO.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compiler/src/main/java/yview/script/ImportBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compiler/src/main/java/yview/script/VNodeBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compiler/src/main/java/yview/script/a.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compiler/src/main/resources/a-ui/components/alert.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compiler/src/main/resources/a-ui/components/button.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/compiler/src/main/resources/a-ui/config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webview/src/main/java/yview/webview/lib/ViewManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/yview/core/core/CallList.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/yview/core/lib/CallList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/yview/core/core/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/yview/core/src/Component.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/yview/core/core/Data.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/yview/core/core/Diff.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/yview/core/lib/Diff.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/yview/core/core/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/yview/core/src/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/yview/core/core/Reactive.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/yview/core/ref/Reactive.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/yview/core/core/View.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/yview/core/define/Nodes.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/yview/core/define/Nodes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libgdx/src/main/java/yview/LibgdxView.java" beforeDir="false" afterPath="$PROJECT_DIR$/libgdx/src/main/java/yview/LibgdxView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compiler/src/main/java/yview/ast/ForData.java" beforeDir="false" afterPath="$PROJECT_DIR$/compiler/src/main/java/yview/ast/ForData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compiler/src/main/java/yview/ast/IfData.java" beforeDir="false" afterPath="$PROJECT_DIR$/compiler/src/main/java/yview/ast/IfData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compiler/src/main/java/yview/ast/PropData.java" beforeDir="false" afterPath="$PROJECT_DIR$/compiler/src/main/java/yview/ast/PropData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compiler/src/main/java/yview/ast/VAst.java" beforeDir="false" afterPath="$PROJECT_DIR$/compiler/src/main/java/yview/ast/VAst.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compiler/src/main/java/yview/diff/Diff.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/compiler/src/main/java/yview/script/CodeBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/compiler/src/main/java/yview/script/CodeBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compiler/src/main/java/yview/src/Compiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/compiler/src/main/java/yview/src/Compiler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compiler/src/test/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/compiler/src/test/java/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/yview/core/lib/Diff.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/yview/core/lib/Diff.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/test/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/test/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,40 +88,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "view",
-    "jdk.selected.JAVA_MODULE": "16",
-    "last_opened_file_path": "C:/Users/YmStrip/Desktop/code/java/java-abstract-vue/compiler",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "模块",
-    "project.structure.proportion": "0.19907834",
-    "project.structure.side.proportion": "0.14648211",
-    "settings.editor.selected.configurable": "preferences.sourceCode.Java",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;view&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;16&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/YmStrip/Desktop/code/java/java-abstract-vue/compiler&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.19907834&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.14648211&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.Java&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.2.5\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\YmStrip\Desktop\code\java\java-abstract-vue\src\core" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\YmStrip\Desktop\code\java\java-abstract-vue\compiler\src\main\resources\a-ui\components" />
       <recent name="C:\Users\YmStrip\Desktop\code\java\java-abstract-vue\libgdx\src\main\java" />
       <recent name="C:\Users\YmStrip\Desktop\code\java\java-abstract-vue\core\src\main\java" />
       <recent name="C:\Users\YmStrip\Desktop\code\java\java-abstract-vue" />
       <recent name="C:\Users\YmStrip\Desktop\code\java\java-abstract-vue\src\core\java" />
-      <recent name="C:\Users\YmStrip\Desktop\code\java\java-abstract-vue\src\core" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Main.test">
+  <component name="RunManager" selected="Gradle.java-abstract-vue [dependencies]">
     <configuration name="Main.test" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -232,11 +244,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Main.test" />
+        <item itemvalue="Gradle.java-abstract-vue [dependencies]" />
         <item itemvalue="Gradle.Test" />
+        <item itemvalue="Gradle.Main.test" />
         <item itemvalue="Gradle.Test.test" />
         <item itemvalue="Gradle.main.test" />
-        <item itemvalue="Gradle.java-abstract-vue [dependencies]" />
       </list>
     </recent_temporary>
   </component>
@@ -249,7 +261,11 @@
       <option name="presentableId" value="Default" />
       <updated>1706741419916</updated>
       <workItem from="1706741420930" duration="20708000" />
-      <workItem from="1706824219430" duration="41242000" />
+      <workItem from="1706824219430" duration="47527000" />
+      <workItem from="1706911730237" duration="595000" />
+      <workItem from="1706912352762" duration="3781000" />
+      <workItem from="1706928955139" duration="9277000" />
+      <workItem from="1707010984691" duration="1648000" />
     </task>
     <task id="LOCAL-00001" summary="-">
       <option name="closed" value="true" />
@@ -267,7 +283,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706855571847</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="update-diff">
+      <option name="closed" value="true" />
+      <created>1706865981120</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1706865981120</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

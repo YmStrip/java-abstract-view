@@ -1,0 +1,8 @@
+1. 将sfc 编译到 jsx
+1. 将jsx 编译到 sfc
+2. ?vAst 编译到 js
+3. ts编译到 js
+4. js编译到 jar
+结论
+jsx -> sfc -> vast -> ts -> js -> jar
+src - > vast -> js

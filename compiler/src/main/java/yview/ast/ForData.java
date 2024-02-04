@@ -80,12 +80,12 @@ public class ForData {
 		return this;
 	}
 	
-	public boolean isFor() {
+	public boolean hasFor() {
 		return !(forFrom == null || forData == null);
 	}
 	
 	public ForData check() {
-		if (!isFor()) error("v-for error");
+		if (!hasFor()) error("v-for error");
 		if (forData != null && Keywords.is(forData)) compiler.config.keywordError(forData, el);
 		if (forIndex != null && Keywords.is(forIndex)) compiler.config.keywordError(forIndex, el);
 		return this;
@@ -104,12 +104,12 @@ public class ForData {
 	}
 	
 	public static boolean isFor(Element el) {
-		return !el.attr("v-for").isEmpty();
+		return el.attribute("v-for") != null;
 	}
 	
 	@Override
 	public String toString() {
-		if (isFor())
+		if (hasFor())
 			return String.format("v-for=\"(%s,%s) in %s\"", forData, forIndex == null ? "index" : forIndex, forFromRange > 0 ? forFromRange : forFrom);
 		return "v-for=\"\"";
 	}

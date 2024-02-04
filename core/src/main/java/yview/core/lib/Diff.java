@@ -1,6 +1,5 @@
 package yview.core.lib;
 
-import yview.core.src.Node;
 import yview.core.src.VNode;
 
 import java.util.ArrayList;
@@ -56,12 +55,13 @@ public class Diff {
 		++hashTime;
 		return Integer.toHexString(hashTime);
 	}
-	
-	//暴力diff
+	//O(n) S(n)
+	//邪教diff 暴力匹配
+	//TODO 优化到O(log n)~O(n)
 	public static void diff(VNode parent, ArrayList<VNode> newCh) {
 		var time = System.currentTimeMillis();
 		var diffKeys = new HashMap<String, VNode>();
-		//keys
+		//三次循环,暴力完成diff
 		for (var i = parent.el.child.size() - 1; i >= 0; --i) {
 			var n = parent.el.child.get(i);
 			VNode node = (VNode) n.attributes.get("v-node");
@@ -94,7 +94,6 @@ public class Diff {
 			dn.diffTime = time;
 			patch(dn, n);
 		}
-		//delete
 		for (var i : diffKeys.entrySet()) {
 			var n = i.getValue();
 			if (n.diffTime == time) continue;
